@@ -30,12 +30,19 @@ function renderCafe(doc){
   });
 }
 
-// getting datab
-db.collection('cafes').where('city','==','Sopot').orderBy('name').get().then(snapshot => {
-    snapshot.docs.forEach(doc => {
-        renderCafe(doc);
-    });
-});
+// getting data
+// db.collection('cafes').where('city','==','Sopot').orderBy('name').get().then(snapshot => {
+//     snapshot.docs.forEach(doc => {
+//         renderCafe(doc);
+//     });
+// });
+
+// real time listener
+
+db.collection('cafes').orderBy('city').onSnapshot( snapshot =>{
+  let chnages = snapshot.docChanges();
+  console.log(chnages)
+})
 
 // saving data
 
