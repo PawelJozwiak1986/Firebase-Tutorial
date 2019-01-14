@@ -31,7 +31,7 @@ function renderCafe(doc){
 }
 
 // getting data
-db.collection('cafes').where ('city','==','london').get().then(snapshot => {
+db.collection('cafes').where ('city','<','n').get().then(snapshot => {
     snapshot.docs.forEach(doc => {
         renderCafe(doc);
     });
