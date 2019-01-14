@@ -30,8 +30,8 @@ function renderCafe(doc){
   });
 }
 
-// getting data
-db.collection('cafes').where ('city','<','n').get().then(snapshot => {
+// getting datab
+db.collection('cafes').orderBy('name').get().then(snapshot => {
     snapshot.docs.forEach(doc => {
         renderCafe(doc);
     });
