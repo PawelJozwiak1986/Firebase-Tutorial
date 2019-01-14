@@ -31,7 +31,7 @@ function renderCafe(doc){
 }
 
 // getting datab
-db.collection('cafes').orderBy('name').get().then(snapshot => {
+db.collection('cafes').where('city','==','Sopot').orderBy('name').get().then(snapshot => {
     snapshot.docs.forEach(doc => {
         renderCafe(doc);
     });
